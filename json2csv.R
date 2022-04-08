@@ -15,12 +15,12 @@ cities = bind_rows(cities2018 %>% mutate(year = 2018),
                    cities2021 %>% mutate(year = 2021))
 cities$id = 1:nrow(cities)
 
-write.csv(cities2021, "./csv/cities2021.csv", fileEncoding = "UTF-8")
-write.csv(cities2020, "./csv/cities2020.csv", fileEncoding = "UTF-8")
-write.csv(cities2019, "./csv/cities2019.csv", fileEncoding = "UTF-8")
-write.csv(cities2018, "./csv/cities2018.csv", fileEncoding = "UTF-8")
+write.csv(cities2021, "./csv/cities2021.csv", fileEncoding = "UTF-8", row.names = FALSE)
+write.csv(cities2020, "./csv/cities2020.csv", fileEncoding = "UTF-8", row.names = FALSE)
+write.csv(cities2019, "./csv/cities2019.csv", fileEncoding = "UTF-8", row.names = FALSE)
+write.csv(cities2018, "./csv/cities2018.csv", fileEncoding = "UTF-8", row.names = FALSE)
 
-write.csv(cities, "cities.csv", fileEncoding = "UTF-8")
+write.csv(cities, "cities.csv", fileEncoding = "UTF-8", row.names = FALSE)
 
 db = dbConnect(RSQLite::SQLite(), "cities.sqlite")
 dbWriteTable(db, "cities", cities)
